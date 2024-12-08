@@ -32,26 +32,26 @@ Bounce button13 = Bounce(13, 10);
 
 
 void setup() {
-  // Configure the pins for INPUT_PULLUP mode with pullup resistors.
+  // Configure the pins for INPUT mode with pullup resistors.
 
-  //For our project, the laser harph, use INPUT_PULLUP and connect the
+  //For our project, the laser harph, use INPUT and connect the
   // different pins on one hand to one of the inputs, from 0-13 and the other 
   // End  TO GROUND
   // Using this the diode should work as a button... I want to make clear SHOULD
-  pinMode(0, INPUT_PULLUP);
-  pinMode(1, INPUT_PULLUP);
-  pinMode(2, INPUT_PULLUP);
-  pinMode(3, INPUT_PULLUP);
-  pinMode(4, INPUT_PULLUP);
-  pinMode(5, INPUT_PULLUP);
-  pinMode(6, INPUT_PULLUP);  // Teensy++ 2.0 LED, may need 1k resistor pullup
-  pinMode(7, INPUT_PULLUP);
-  pinMode(8, INPUT_PULLUP);
-  pinMode(9, INPUT_PULLUP);
-  pinMode(10, INPUT_PULLUP);
-  pinMode(11, INPUT_PULLUP); 
-  pinMode(12, INPUT_PULLUP); 
-  pinMode(13, INPUT_PULLUP); 
+  pinMode(0, INPUT);
+  pinMode(1, INPUT);
+  pinMode(2, INPUT);
+  pinMode(3, INPUT);
+  pinMode(4, INPUT);
+  pinMode(5, INPUT);
+  pinMode(6, INPUT);  // Teensy++ 2.0 LED, may need 1k resistor pullup
+  pinMode(7, INPUT);
+  pinMode(8, INPUT);
+  pinMode(9, INPUT);
+  pinMode(10, INPUT);
+  pinMode(11, INPUT); 
+  pinMode(12, INPUT); 
+  pinMode(13, INPUT); 
 
 }
 
