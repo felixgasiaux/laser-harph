@@ -49,8 +49,8 @@ void setup() {
   pinMode(8, INPUT_PULLUP);
   pinMode(9, INPUT_PULLUP);
   pinMode(10, INPUT_PULLUP);
-  pinMode(11, INPUT_PULLUP); // Teensy 2.0 LED, may need 1k resistor pullup
-  pinMode(12, INPUT_PULLUP); // Teensy 2.0 LED, may need 1k resistor pullup
+  pinMode(11, INPUT_PULLUP); 
+  pinMode(12, INPUT_PULLUP); 
   pinMode(13, INPUT_PULLUP); 
 
 }
@@ -116,10 +116,10 @@ void loop() {
     usbMIDI.sendNoteOn(71, 99, channel);  // 71 = B5
   }
   if (button12.fallingEdge()) {
-    usbMIDI.sendNoteOn(72, 99, channel);  // 71 = B5
+    usbMIDI.sendNoteOn(72, 99, channel);  // 71 = B#5
   }
   if (button13.fallingEdge()) {
-    usbMIDI.sendNoteOn(73, 99, channel);  // 71 = B5
+    usbMIDI.sendNoteOn(73, 99, channel);  // 71 = C5
   }
 
   // Check each button for "rising" edge
@@ -165,10 +165,10 @@ void loop() {
     usbMIDI.sendNoteOff(71, 0, channel);  // 71 = B5
   }
   if (button12.risingEdge()) {
-    usbMIDI.sendNoteOff(72, 0, channel);  // 71 = B5
+    usbMIDI.sendNoteOff(72, 0, channel);  // 71 = B#5
   }
   if (button13.risingEdge()) {
-    usbMIDI.sendNoteOff(73, 0, channel);  // 71 = B5
+    usbMIDI.sendNoteOff(73, 0, channel);  // 71 = C5
   }
 
   // MIDI Controllers should discard incoming MIDI messages.
