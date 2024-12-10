@@ -28,7 +28,8 @@ Bounce button9 = Bounce(9, 10);
 Bounce button10 = Bounce(10, 10);
 Bounce button11 = Bounce(11, 10);
 Bounce button12 = Bounce(12, 10);
-Bounce button13 = Bounce(13, 10);
+// 13 is the LED
+Bounce button14 = Bounce(14, 10);
 
 
 void setup() {
@@ -38,21 +39,33 @@ void setup() {
   // different pins on one hand to one of the inputs, from 0-13 and the other 
   // End  TO GROUND
   // Using this the diode should work as a button... I want to make clear SHOULD
-  pinMode(0, INPUT);
-  pinMode(1, INPUT);
-  pinMode(2, INPUT);
-  pinMode(3, INPUT);
-  pinMode(4, INPUT);
-  pinMode(5, INPUT);
-  pinMode(6, INPUT);  // Teensy++ 2.0 LED, may need 1k resistor pullup
-  pinMode(7, INPUT);
-  pinMode(8, INPUT);
-  pinMode(9, INPUT);
-  pinMode(10, INPUT);
-  pinMode(11, INPUT); 
-  pinMode(12, INPUT); 
-  pinMode(13, INPUT); 
-
+  pinMode(0, INPUT_PULLUP);
+  pinMode(1, INPUT_PULLUP);
+  pinMode(2, INPUT_PULLUP);
+  pinMode(3, INPUT_PULLUP);
+  pinMode(4, INPUT_PULLUP);
+  pinMode(5, INPUT_PULLUP);
+  pinMode(6, INPUT_PULLUP);  // Teensy++ 2.0 LED, may need 1k resistor pullup
+  pinMode(7, INPUT_PULLUP);
+  pinMode(8, INPUT_PULLUP);
+  pinMode(9, INPUT_PULLUP);
+  pinMode(10, INPUT_PULLUP);
+  pinMode(11, INPUT_PULLUP); 
+  pinMode(12, INPUT_PULLUP);
+  pinMode(13, OUTPUT);       // 13 is the LED
+  pinMode(14, INPUT_PULLUP); 
+  // flash LED 3 times to show that it has booted
+  digitalWrite(13, HIGH);   // LED on
+  delay(500);             
+  digitalWrite(13, LOW);   // LED off
+  delay(500);             
+  digitalWrite(13, HIGH);   // LED on
+  delay(500);             
+  digitalWrite(13, LOW);   // LED off
+  delay(500);             
+  digitalWrite(13, HIGH);   // LED on
+  delay(500);             
+  digitalWrite(13, LOW);   // LED off
 }
 
 void loop() {
@@ -72,54 +85,70 @@ void loop() {
   button10.update();
   button11.update();
   button12.update();
-  button13.update();
+  // 13 is the LED
+  button14.update();
 
-  // Check each button for "falling" edge.
+  // Check each button for "rising" edge.
   // Send a MIDI Note On message when each button presses
   // Update the Joystick buttons only upon changes.
   // falling = high (not pressed - voltage from pullup resistor)
   //           to low (pressed - button connects pin to ground)
-  if (button0.fallingEdge()) {
+  if (button0.risingEdge()) {
     usbMIDI.sendNoteOn(60, 99, channel);  // 60 = C4
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button1.fallingEdge()) {
+  if (button1.risingEdge()) {
     usbMIDI.sendNoteOn(61, 99, channel);  // 61 = C#4
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button2.fallingEdge()) {
+  if (button2.risingEdge()) {
     usbMIDI.sendNoteOn(62, 99, channel);  // 62 = D4
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button3.fallingEdge()) {
+  if (button3.risingEdge()) {
     usbMIDI.sendNoteOn(63, 99, channel);  // 63 = D#4
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button4.fallingEdge()) {
+  if (button4.risingEdge()) {
     usbMIDI.sendNoteOn(64, 99, channel);  // 64 = E4
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button5.fallingEdge()) {
+  if (button5.risingEdge()) {
     usbMIDI.sendNoteOn(65, 99, channel);  // 65 = F4
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button6.fallingEdge()) {
+  if (button6.risingEdge()) {
     usbMIDI.sendNoteOn(66, 99, channel);  // 66 = F#4
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button7.fallingEdge()) {
+  if (button7.risingEdge()) {
     usbMIDI.sendNoteOn(67, 99, channel);  // 67 = G4
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button8.fallingEdge()) {
+  if (button8.risingEdge()) {
     usbMIDI.sendNoteOn(68, 99, channel);  // 68 = G#4
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button9.fallingEdge()) {
+  if (button9.risingEdge()) {
     usbMIDI.sendNoteOn(69, 99, channel);  // 69 = A5
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button10.fallingEdge()) {
+  if (button10.risingEdge()) {
     usbMIDI.sendNoteOn(70, 99, channel);  // 70 = A#5
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button11.fallingEdge()) {
+  if (button11.risingEdge()) {
     usbMIDI.sendNoteOn(71, 99, channel);  // 71 = B5
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button12.fallingEdge()) {
+  if (button12.risingEdge()) {
     usbMIDI.sendNoteOn(72, 99, channel);  // 71 = B#5
+    digitalWrite(13, HIGH);   // LED on
   }
-  if (button13.fallingEdge()) {
+  // 13 is the LED
+  if (button14.risingEdge()) {
     usbMIDI.sendNoteOn(73, 99, channel);  // 71 = C5
+    digitalWrite(13, HIGH);   // LED on
   }
 
   // Check each button for "rising" edge
@@ -128,47 +157,62 @@ void loop() {
   // is pressed and the release isn't needed.
   // rising = low (pressed - button connects pin to ground)
   //          to high (not pressed - voltage from pullup resistor)
-  if (button0.risingEdge()) {
+  if (button0.fallingEdge()) {
     usbMIDI.sendNoteOff(60, 0, channel);  // 60 = C4
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button1.risingEdge()) {
+  if (button1.fallingEdge()) {
     usbMIDI.sendNoteOff(61, 0, channel);  // 61 = C#4
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button2.risingEdge()) {
+  if (button2.fallingEdge()) {
     usbMIDI.sendNoteOff(62, 0, channel);  // 62 = D4
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button3.risingEdge()) {
+  if (button3.fallingEdge()) {
     usbMIDI.sendNoteOff(63, 0, channel);  // 63 = D#4
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button4.risingEdge()) {
+  if (button4.fallingEdge()) {
     usbMIDI.sendNoteOff(64, 0, channel);  // 64 = E4
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button5.risingEdge()) {
+  if (button5.fallingEdge()) {
     usbMIDI.sendNoteOff(65, 0, channel);  // 65 = F4
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button6.risingEdge()) {
+  if (button6.fallingEdge()) {
     usbMIDI.sendNoteOff(66, 0, channel);  // 66 = F#4
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button7.risingEdge()) {
+  if (button7.fallingEdge()) {
     usbMIDI.sendNoteOff(67, 0, channel);  // 67 = G4
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button8.risingEdge()) {
+  if (button8.fallingEdge()) {
     usbMIDI.sendNoteOff(68, 0, channel);  // 68 = G#4
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button9.risingEdge()) {
+  if (button9.fallingEdge()) {
     usbMIDI.sendNoteOff(69, 0, channel);  // 69 = A5
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button10.risingEdge()) {
+  if (button10.fallingEdge()) {
     usbMIDI.sendNoteOff(70, 0, channel);  // 70 = A#5
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button11.risingEdge()) {
+  if (button11.fallingEdge()) {
     usbMIDI.sendNoteOff(71, 0, channel);  // 71 = B5
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button12.risingEdge()) {
+  if (button12.fallingEdge()) {
     usbMIDI.sendNoteOff(72, 0, channel);  // 71 = B#5
+    digitalWrite(13, LOW);   // LED off
   }
-  if (button13.risingEdge()) {
+  // 13 is the LED
+  if (button14.fallingEdge()) {
     usbMIDI.sendNoteOff(73, 0, channel);  // 71 = C5
+    digitalWrite(13, LOW);   // LED off
   }
 
   // MIDI Controllers should discard incoming MIDI messages.
