@@ -94,60 +94,60 @@ void loop() {
   // falling = high (not pressed - voltage from pullup resistor)
   //           to low (pressed - button connects pin to ground)
   if (button0.risingEdge()) {
-    usbMIDI.sendNoteOn(60, 99, channel);  // 60 = C4
+    usbMIDI.sendNoteOn(48, 99, channel);  // 48 = C4
     digitalWrite(13, HIGH);   // LED on
   }
   if (button1.risingEdge()) {
-    usbMIDI.sendNoteOn(61, 99, channel);  // 61 = C#4
+    usbMIDI.sendNoteOn(50, 99, channel);  // 50 = D4
     digitalWrite(13, HIGH);   // LED on
   }
   if (button2.risingEdge()) {
-    usbMIDI.sendNoteOn(62, 99, channel);  // 62 = D4
+    usbMIDI.sendNoteOn(52, 99, channel);  // 52 = E4
     digitalWrite(13, HIGH);   // LED on
   }
   if (button3.risingEdge()) {
-    usbMIDI.sendNoteOn(63, 99, channel);  // 63 = D#4
+    usbMIDI.sendNoteOn(53, 99, channel);  // 53 = F4
     digitalWrite(13, HIGH);   // LED on
   }
   if (button4.risingEdge()) {
-    usbMIDI.sendNoteOn(64, 99, channel);  // 64 = E4
+    usbMIDI.sendNoteOn(55, 99, channel);  // 55 = G4
     digitalWrite(13, HIGH);   // LED on
   }
   if (button5.risingEdge()) {
-    usbMIDI.sendNoteOn(65, 99, channel);  // 65 = F4
+    usbMIDI.sendNoteOn(57, 99, channel);  // 57 = A4
     digitalWrite(13, HIGH);   // LED on
   }
   if (button6.risingEdge()) {
-    usbMIDI.sendNoteOn(66, 99, channel);  // 66 = F#4
+    usbMIDI.sendNoteOn(59, 99, channel);  // 59 = B4
     digitalWrite(13, HIGH);   // LED on
   }
   if (button7.risingEdge()) {
-    usbMIDI.sendNoteOn(67, 99, channel);  // 67 = G4
+    usbMIDI.sendNoteOn(60, 99, channel);  // 60 = C5
     digitalWrite(13, HIGH);   // LED on
   }
   if (button8.risingEdge()) {
-    usbMIDI.sendNoteOn(68, 99, channel);  // 68 = G#4
+    usbMIDI.sendNoteOn(62, 99, channel);  // 62 = D5
     digitalWrite(13, HIGH);   // LED on
   }
   if (button9.risingEdge()) {
-    usbMIDI.sendNoteOn(69, 99, channel);  // 69 = A5
+    usbMIDI.sendNoteOn(64, 99, channel);  // 64 = E5
     digitalWrite(13, HIGH);   // LED on
   }
   if (button10.risingEdge()) {
-    usbMIDI.sendNoteOn(70, 99, channel);  // 70 = A#5
+    usbMIDI.sendNoteOn(65, 99, channel);  // 65 = F5
     digitalWrite(13, HIGH);   // LED on
   }
   if (button11.risingEdge()) {
-    usbMIDI.sendNoteOn(71, 99, channel);  // 71 = B5
+    usbMIDI.sendNoteOn(67, 99, channel);  // 67 = G5
     digitalWrite(13, HIGH);   // LED on
   }
   if (button12.risingEdge()) {
-    usbMIDI.sendNoteOn(72, 99, channel);  // 71 = B#5
+    usbMIDI.sendNoteOn(69, 99, channel);  // 69 = A5
     digitalWrite(13, HIGH);   // LED on
   }
   // 13 is the LED
   if (button14.risingEdge()) {
-    usbMIDI.sendNoteOn(73, 99, channel);  // 71 = C5
+    usbMIDI.sendNoteOn(71, 99, channel);  // 71 = B5
     digitalWrite(13, HIGH);   // LED on
   }
 
@@ -158,61 +158,61 @@ void loop() {
   // rising = low (pressed - button connects pin to ground)
   //          to high (not pressed - voltage from pullup resistor)
   if (button0.fallingEdge()) {
-    usbMIDI.sendNoteOff(60, 0, channel);  // 60 = C4
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(48, 99, channel);  // 48 = C4
+    digitalWrite(13, LOW);   // LED on
   }
   if (button1.fallingEdge()) {
-    usbMIDI.sendNoteOff(61, 0, channel);  // 61 = C#4
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(50, 99, channel);  // 50 = D4
+    digitalWrite(13, LOW);   // LED on
   }
   if (button2.fallingEdge()) {
-    usbMIDI.sendNoteOff(62, 0, channel);  // 62 = D4
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(52, 99, channel);  // 52 = E4
+    digitalWrite(13, LOW);   // LED on
   }
   if (button3.fallingEdge()) {
-    usbMIDI.sendNoteOff(63, 0, channel);  // 63 = D#4
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(53, 99, channel);  // 53 = F4
+    digitalWrite(13, LOW);   // LED on
   }
   if (button4.fallingEdge()) {
-    usbMIDI.sendNoteOff(64, 0, channel);  // 64 = E4
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(55, 99, channel);  // 55 = G4
+    digitalWrite(13, LOW);   // LED on
   }
   if (button5.fallingEdge()) {
-    usbMIDI.sendNoteOff(65, 0, channel);  // 65 = F4
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(57, 99, channel);  // 57 = A4
+    digitalWrite(13, LOW);   // LED on
   }
   if (button6.fallingEdge()) {
-    usbMIDI.sendNoteOff(66, 0, channel);  // 66 = F#4
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(59, 99, channel);  // 59 = B4
+    digitalWrite(13, LOW);   // LED on
   }
   if (button7.fallingEdge()) {
-    usbMIDI.sendNoteOff(67, 0, channel);  // 67 = G4
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(60, 99, channel);  // 60 = C5
+    digitalWrite(13, LOW);   // LED on
   }
   if (button8.fallingEdge()) {
-    usbMIDI.sendNoteOff(68, 0, channel);  // 68 = G#4
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(62, 99, channel);  // 62 = D5
+    digitalWrite(13, LOW);   // LED on
   }
   if (button9.fallingEdge()) {
-    usbMIDI.sendNoteOff(69, 0, channel);  // 69 = A5
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(64, 99, channel);  // 64 = E5
+    digitalWrite(13, LOW);   // LED on
   }
   if (button10.fallingEdge()) {
-    usbMIDI.sendNoteOff(70, 0, channel);  // 70 = A#5
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(65, 99, channel);  // 65 = F5
+    digitalWrite(13, LOW);   // LED on
   }
   if (button11.fallingEdge()) {
-    usbMIDI.sendNoteOff(71, 0, channel);  // 71 = B5
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(67, 99, channel);  // 67 = G5
+    digitalWrite(13, LOW);   // LED on
   }
   if (button12.fallingEdge()) {
-    usbMIDI.sendNoteOff(72, 0, channel);  // 71 = B#5
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(69, 99, channel);  // 69 = A5
+    digitalWrite(13, LOW);   // LED on
   }
   // 13 is the LED
   if (button14.fallingEdge()) {
-    usbMIDI.sendNoteOff(73, 0, channel);  // 71 = C5
-    digitalWrite(13, LOW);   // LED off
+    usbMIDI.sendNoteOff(71, 99, channel);  // 71 = B5
+    digitalWrite(13, LOW);   // LED on
   }
 
   // MIDI Controllers should discard incoming MIDI messages.
